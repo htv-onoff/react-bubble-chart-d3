@@ -161,13 +161,13 @@ export default class BubbleChart extends Component {
       .style("stroke-width", () => {
         return labelFont.lineWeight ? labelFont.lineWeight : 0;
       }).data(function (d) {
-      return [1, 2]
+        return [1, 2]
     })
         .append('tspan')
-        .text((d) => {return d});
-      // .text(function(d) {
-      //   return d.label;
-      // });
+        // .text((d) => {return d});
+      .text(function(d) {
+        return d.label;
+      });
 
     // node.node.data(function (d) {
     //   return [1, 2]
