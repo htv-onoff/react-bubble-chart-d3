@@ -124,5 +124,5 @@ The **legendFont**, **valueFont** and **labelFont** prop receive a configuration
 
 Install this component is easy, just use npm as:
 ```BASH
-npm install @weknow/react-bubble-chart-d3
+npm install https://github.com/dangtinh97/react-bubble-chart-d3
 ```
