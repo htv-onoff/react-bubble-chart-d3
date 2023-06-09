@@ -264,7 +264,7 @@ export default class BubbleChart extends Component {
       })
       .attr("x", (d) => { return legendFont.size + 10 })
       .attr("y", 0)
-      .text((d) => { return '123 });
+      .text((d) => { return '123' });
   }
 }
 
