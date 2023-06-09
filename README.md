@@ -70,7 +70,7 @@ legendClick = (label) =>{
     { label: 'Languages / Frameworks', value: 25 },
     { label: 'Front End', value: 26 },
     { label: 'Content', value: 26 },
-      { label: 'Line1\nLine2', value: 26,fontSize:12 },
+      { label: 'Line1\nLine2', value: 26,fontSize:12,color:'#2222' },
   ]}
 />
 ```
