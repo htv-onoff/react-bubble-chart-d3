@@ -68,7 +68,7 @@ export default class BubbleChart extends Component {
     .sort(function(a, b) { return b.value - a.value; })
     .each((d) => {
       if(d.data.label) {
-        d.label = 'dangtinh5';
+        d.label = d.data.label;
         d.id = d.data.label.toLowerCase().replace(/ |\//g, "-");
       }
     });
@@ -103,7 +103,7 @@ export default class BubbleChart extends Component {
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .on("click", function(d) {
-        bubbleClickFun('dangtinh');
+        bubbleClickFun(d.label);
     });
 
     node.append("circle")
@@ -143,7 +143,7 @@ export default class BubbleChart extends Component {
       })
       .text(function(d) { return d.value; });
 
-    //set text dangtinh
+    //set text
     node.append("text")
       .attr("class", "label-text")
       .style("font-size", `${labelFont.size}px`)
@@ -160,10 +160,16 @@ export default class BubbleChart extends Component {
       })
       .style("stroke-width", () => {
         return labelFont.lineWeight ? labelFont.lineWeight : 0;
-      })
-      .span(function(d) {
-        return 'dangtinh1';
       });
+      // .text(function(d) {
+      //   return d.label;
+      // });
+
+    node.node.data(function (d){
+      return [1,2]
+    })
+        .append('tspan')
+        .text((d)=>d);
 
 
     // Center the texts inside the circles.
@@ -197,7 +203,7 @@ export default class BubbleChart extends Component {
     });
 
     node.append("title")
-      .text(function(d) { return 'dangtinh2'; });
+      .text(function(d) { return d.label; });
   }
 
   renderLegend(width, height, offset, nodes, color) {
@@ -231,7 +237,7 @@ export default class BubbleChart extends Component {
         d3.select('#' + d.id).attr("r", r);
       })
       .on("click", function(d) {
-        legendClickFun('dangtinh');
+        legendClickFun(d.label);
     });;
 
     texts.append("rect")
@@ -265,7 +271,7 @@ export default class BubbleChart extends Component {
       })
       .attr("x", (d) => { return legendFont.size + 10 })
       .attr("y", 0)
-      .text((d) => { return 'dangtinh0' });
+      .text((d) => { return d.label });
   }
 }
 
