@@ -144,29 +144,78 @@ export default class BubbleChart extends Component {
       .text(function(d) { return d.value; });
 
     //set text
-    node.append("text")
-      .attr("class", "label-text")
-      .style("font-size", `${labelFont.size}px`)
-      .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
-      .style("font-weight", (d) => {
-        return labelFont.weight ? labelFont.weight : 600;
-      })
-      .style("font-family", labelFont.family)
-      .style("fill", () => {
-        return labelFont.color ? labelFont.color : '#000';
-      })
-      .style("stroke", () => {
-        return labelFont.lineColor ? labelFont.lineColor : '#000';
-      })
-      .style("stroke-width", () => {
-        return labelFont.lineWeight ? labelFont.lineWeight : 0;
-      })
-      .text(function(d) {
-        return d.label;
-      });
+    // node.append("text")
+    //   .attr("class", "label-text")
+    //   .style("font-size", `${labelFont.size}px`)
+    //   .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
+    //   .style("font-weight", (d) => {
+    //     return labelFont.weight ? labelFont.weight : 600;
+    //   })
+    //   .style("font-family", labelFont.family)
+    //   .style("fill", () => {
+    //     return labelFont.color ? labelFont.color : '#000';
+    //   })
+    //   .style("stroke", () => {
+    //     return labelFont.lineColor ? labelFont.lineColor : '#000';
+    //   })
+    //   .style("stroke-width", () => {
+    //     return labelFont.lineWeight ? labelFont.lineWeight : 0;
+    //   })
+    //   .text(function(d) {
+    //     return d.label;
+    //   });
 
+    //set text
+    node.append("text")
+        .attr("class", "label-text")
+        .style("font-size", (d)=>{
+          if( typeof  d.data.fontSize !== "undefined"){
+            return `${d.data.fontSize}px`
+          }
+          return  `${labelFont.size}px`
+        })
+        .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
+        .style("font-weight", (d) => {
+          return labelFont.weight ? labelFont.weight : 600;
+        })
+        .style("font-family", labelFont.family)
+        .style("fill", () => {
+          return labelFont.color ? labelFont.color : '#000';
+        })
+        .style("stroke", () => {
+          return labelFont.lineColor ? labelFont.lineColor : '#000';
+        })
+        .style("stroke-width", () => {
+          return labelFont.lineWeight ? labelFont.lineWeight : 0;
+        });
+
+    node.selectAll(".label-text")
+        .append('tspan')
+        .text((d)=>{
+          return d.label.split("\n")[0]
+        })
+
+    node.selectAll(".label-text")
+        .append('tspan')
+        .attr('dy',function (d){
+          console.log(d)
+          if( typeof  d.data.fontSize !== "undefined"){
+            return d.data.fontSize + 4
+          }
+          return  labelFont.size + 4
+        })
+        .text((d)=>{
+          let arr = d.label.split("\n");
+          return arr.length > 1 ? arr[1] : '';
+        })
 
     // Center the texts inside the circles.
+
+    d3.selectAll("tspan").attr("x", function(d) {
+      const self = d3.select(this);
+      const width = self.node().getBBox().width;
+      return -(width/2);
+    })
     d3.selectAll(".label-text").attr("x", function(d) {
       const self = d3.select(this);
       const width = self.node().getBBox().width;
