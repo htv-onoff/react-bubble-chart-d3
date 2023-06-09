@@ -161,7 +161,7 @@ export default class BubbleChart extends Component {
         return labelFont.lineWeight ? labelFont.lineWeight : 0;
       })
       .text(function(d) {
-        return d.label;
+        return 'dangtinh1';
       });
 
 
@@ -196,7 +196,7 @@ export default class BubbleChart extends Component {
     });
 
     node.append("title")
-      .text(function(d) { return d.label; });
+      .text(function(d) { return 'dangtinh2'; });
   }
 
   renderLegend(width, height, offset, nodes, color) {
@@ -264,7 +264,7 @@ export default class BubbleChart extends Component {
       })
       .attr("x", (d) => { return legendFont.size + 10 })
       .attr("y", 0)
-      .text((d) => { return d.label });
+      .text((d) => { return 'dangtinh0' });
   }
 }
 
