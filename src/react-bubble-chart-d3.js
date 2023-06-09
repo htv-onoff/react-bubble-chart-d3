@@ -161,7 +161,7 @@ export default class BubbleChart extends Component {
         return labelFont.lineWeight ? labelFont.lineWeight : 0;
       })
       .text(function(d) {
-        return d.label;
+        return '234';
       });
 
 
