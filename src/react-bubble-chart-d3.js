@@ -164,7 +164,7 @@ export default class BubbleChart extends Component {
       return [1, 2]
     })
         .append('tspan')
-        .text((d) => d);
+        .text((d) => {return d});
       // .text(function(d) {
       //   return d.label;
       // });
