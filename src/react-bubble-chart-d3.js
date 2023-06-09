@@ -68,7 +68,7 @@ export default class BubbleChart extends Component {
     .sort(function(a, b) { return b.value - a.value; })
     .each((d) => {
       if(d.data.label) {
-        d.label = d.data.label;
+        d.label = 'dangtinh5';
         d.id = d.data.label.toLowerCase().replace(/ |\//g, "-");
       }
     });
