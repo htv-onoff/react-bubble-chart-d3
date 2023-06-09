@@ -143,6 +143,7 @@ export default class BubbleChart extends Component {
       })
       .text(function(d) { return d.value; });
 
+    //set text dangtinh
     node.append("text")
       .attr("class", "label-text")
       .style("font-size", `${labelFont.size}px`)
@@ -160,7 +161,7 @@ export default class BubbleChart extends Component {
       .style("stroke-width", () => {
         return labelFont.lineWeight ? labelFont.lineWeight : 0;
       })
-      .text(function(d) {
+      .span(function(d) {
         return 'dangtinh1';
       });
 
