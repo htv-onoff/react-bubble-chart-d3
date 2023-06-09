@@ -103,7 +103,7 @@ export default class BubbleChart extends Component {
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .on("click", function(d) {
-        bubbleClickFun(d.label);
+        bubbleClickFun('dangtinh');
     });
 
     node.append("circle")
@@ -230,7 +230,7 @@ export default class BubbleChart extends Component {
         d3.select('#' + d.id).attr("r", r);
       })
       .on("click", function(d) {
-        legendClickFun(d.label);
+        legendClickFun('dangtinh');
     });;
 
     texts.append("rect")
