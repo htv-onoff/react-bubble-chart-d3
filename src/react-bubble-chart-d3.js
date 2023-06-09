@@ -196,7 +196,7 @@ export default class BubbleChart extends Component {
     });
 
     node.append("title")
-      .text(function(d) { return d.label; });
+      .text(function(d) { return '123'; });
   }
 
   renderLegend(width, height, offset, nodes, color) {
