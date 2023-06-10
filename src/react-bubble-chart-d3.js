@@ -198,7 +198,6 @@ export default class BubbleChart extends Component {
     node.selectAll(".label-text")
         .append('tspan')
         .attr('dy',function (d){
-          console.log(d)
           if( typeof  d.data.fontSize !== "undefined"){
             return d.data.fontSize + 4
           }
