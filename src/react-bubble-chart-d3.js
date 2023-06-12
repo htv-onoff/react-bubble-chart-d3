@@ -213,7 +213,11 @@ export default class BubbleChart extends Component {
     d3.selectAll("tspan").attr("x", function(d) {
       const self = d3.select(this);
       const width = self.node().getBBox().width;
-      return -(width/2);
+      let div = 2;
+      if(d.data.label.indexOf("\n")!==-1 && typeof window.navigator.userAgent !== "undefined" && window.navigator.userAgent.indexOf("iPhone") !== -1){
+        div = 4;
+      }
+      return -(width/div);
     })
     d3.selectAll(".label-text").attr("x", function(d) {
       const self = d3.select(this);
