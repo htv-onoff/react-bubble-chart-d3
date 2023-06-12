@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dangtinh97/react-bubble-chart-d3"
+    "url": "https://github.com/htv-onoff/react-bubble-chart-d3"
   },
   "main": "lib/index.js",
   "peerDependencies": {},
