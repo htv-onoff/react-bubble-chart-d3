@@ -192,7 +192,7 @@ export default class BubbleChart extends Component {
     node.selectAll(".label-text")
         .append('tspan')
         .text((d)=>{
-          return d.label.split("\n")[0]
+          return d?.label?.split("\n")[0] ?? ''
         })
 
     node.selectAll(".label-text")
@@ -204,7 +204,7 @@ export default class BubbleChart extends Component {
           return  labelFont.size + 4
         })
         .text((d)=>{
-          let arr = d.label.split("\n");
+          let arr = d?.label?.split("\n");
           return arr.length > 1 ? arr[1] : '';
         })
 
@@ -236,7 +236,7 @@ export default class BubbleChart extends Component {
           if(d.data.fontSize){
             y = d.data.fontSize/2
           }
-          return y/d.label.split("\n").length
+          return y/d.label?.split("\n").length
         })
 
     // Center the texts inside the circles.
