@@ -1,6 +1,6 @@
 {
   "name": "@htv-onoff/react-bubble-chart-d3",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "description": "ReactJS component to display data as a bubble chart using D3.",
   "keywords": [
     "ReactJS",
